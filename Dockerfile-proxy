@@ -6,4 +6,6 @@ Add . /go/src/pushprox/
 WORKDIR /go/src/pushprox/proxy
 RUN go build
 
+EXPOSE 8080
+
 CMD ["./proxy"]
