@@ -46,6 +46,19 @@ If the target must be scraped over SSL/TLS, add:
 rather than the usual `scheme: https`. Only the default `scheme: http` works with the proxy,
 so this workaround is required.
 
+## Running as docker images
+
+Proxy (Server)
+```
+  docker run skyr/pushprox
+```
+
+Client
+```
+  docker run -e FQDN=fqdn.nowhere.com -e PROXY_URL=http://proxy-url.my-server.cloud skyr/pushprox:client
+```
+
+
 ## Service Discovery
 
 The `/clients` endpoint will return a list of all registered clients in the format
