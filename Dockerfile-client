@@ -1,0 +1,12 @@
+FROM golang:alpine 
+
+RUN apk --no-cache --update add bash
+Add . /go/src/pushprox/
+WORKDIR /go/src/pushprox/client
+RUN go build
+
+ENV PROXY_URL=http://localhost:8080/
+# FQDN should be passed on running the container
+ENV FQDN=anonymous-client.nowhere.com
+
+CMD ["./run-client.sh"]
